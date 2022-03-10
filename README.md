@@ -1,2 +1,2 @@
-# hanabi
-Framework to create music lyrics video
+# Hanabi
+Framework to create music lyrics video.
