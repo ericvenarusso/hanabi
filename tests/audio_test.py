@@ -1,12 +1,14 @@
 import pytest
 from unittest.mock import patch
 
+from youtube_dl import YoutubeDL
+
 from hanabi.audio import Audio
 
 
 @pytest.fixture
 def audio():
-    return Audio(name="levan polkka")
+    return Audio("levan polkka")
 
 
 def test_init_youtube_downloader(audio):
@@ -27,14 +29,23 @@ def test_init_youtube_downloader(audio):
 
 
 def test_get_audio_url(audio):
-    return_url = "youtube.com"
-    with patch.object(Audio, "_get_audio_url", return_value = return_url) as mock_method:
-        audio._get_audio_url()
+    audio_url = "http://www.youtube.com"
+    mock_return = {"entries": [{"webpage_url": audio_url}]}
 
-        mock_method.assert_called_once()
-        mock_method.return_value == return_url
+    with patch.object(
+        YoutubeDL, "extract_info", return_value=mock_return
+    ) as mock_method:
+        audio_return = audio._get_audio_url()
 
-def test_donwload(audio):
+        mock_method.assert_called_once_with("ytsearch:levan polkka", download=False)
+        assert audio_url == audio_return
+
+
+def test_download():
+    get_url_audio_return = "youtube.com"
+
     with patch.object(Audio, "download") as mock_method:
-        audio.download()
-        mock_method.assert_called_once()
+        mock_method._get_audio_url.return_value = get_url_audio_return
+        mock_method.download()
+
+        mock_method.download.assert_called_once()

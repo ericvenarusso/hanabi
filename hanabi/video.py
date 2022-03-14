@@ -16,13 +16,13 @@ class Video:
         self.text_clip = None
         self.audio_clip = None
 
-    def set_image_clip(self, image_path):
-        self.image_clip = ImageClip(image_path, duration=self.audio_clip.duration)
+    def set_image_clip(self):
+        self.image_clip = ImageClip(self.image, duration=self.audio_clip.duration)
         self.image_clip.resize((1920, 1080))
 
-    def set_text_clip(self, texts):
+    def set_text_clip(self):
         text_clips = []
-        for text in texts:
+        for text in self.texts:
             clip = (
                 TextClip(
                     text["lyrics"],
@@ -42,13 +42,13 @@ class Video:
 
         self.text_clip = text_clips
 
-    def set_audio_clip(self, audio_path):
-        self.audio_clip = AudioFileClip(audio_path)
+    def set_audio_clip(self):
+        self.audio_clip = AudioFileClip(self.audio)
 
     def create_video_clip(self, save_path):
-        self.set_audio_clip(self.audio)
-        self.set_image_clip(self.image)
-        self.set_text_clip(self.texts)
+        self.set_audio_clip()
+        self.set_image_clip()
+        self.set_text_clip()
 
         audio_clip = CompositeAudioClip([self.audio_clip])
         video_clip = CompositeVideoClip([self.image_clip] + self.text_clip)

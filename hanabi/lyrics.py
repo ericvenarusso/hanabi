@@ -4,12 +4,12 @@ import requests
 
 
 class Lyrics:
-    def __init__(self, music_name):
-        self.music_name = music_name
+    def __init__(self, name):
+        self.name = name
         self.lyrics_endpoint = "https://api.textyl.co/api/lyrics"
 
     @staticmethod
-    def __add_duration(lyrics):
+    def _add_duration(lyrics):
         position = 0
         list_len = len(lyrics)
 
@@ -31,8 +31,8 @@ class Lyrics:
         return lyrics
 
     def get_lyrics(self) -> list:
-        response = requests.get(self.lyrics_endpoint, params={"q": self.music_name})
+        response = requests.get(self.lyrics_endpoint, params={"q": self.name})
         response_list = ast.literal_eval(response.text)
-        lyrics = self.__add_duration(response_list)
+        lyrics = self._add_duration(response_list)
 
         return lyrics

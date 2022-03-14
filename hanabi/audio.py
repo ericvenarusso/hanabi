@@ -4,9 +4,9 @@ import youtube_dl
 class Audio:
     def __init__(self, name):
         self.name = name
-        self.youtube = self.__init_youtube_downloader()
+        self.youtube = self.__open_youtube_downloader()
 
-    def __init_youtube_downloader(self):
+    def __open_youtube_downloader(self):
         options = {
             "format": "bestaudio/best",
             "outtmpl": f"/tmp/hanabi/audio/{self.name}.mp3",
