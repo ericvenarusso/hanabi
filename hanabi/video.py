@@ -55,4 +55,4 @@ class Video:
 
         video_clip.audio = audio_clip
 
-        video_clip.write_videofile(fps=60, codec="png", filename=f"{save_path}.mp4")
+        video_clip.write_videofile(fps=60, codec="png", filename=save_path)
