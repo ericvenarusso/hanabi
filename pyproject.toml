@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "hanabi"
+version = "0.1.0"
+description = "Framework to create automated music videos"
+authors = ["Eric Venarusso"]
+license = "Apache2"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "2.27.1"
+youtube_dl = "2021.12.17"
+icrawler = "0.6.6"
+moviepy = "1.0.3"
+click = "8.0.4"
+black = "^22.1.0"
+pytest = "^7.0.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+hanabi = "hanabi.cli:create_video"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
