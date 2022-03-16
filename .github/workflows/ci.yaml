@@ -16,7 +16,7 @@ jobs:
           poetry install
       - name: Lint with black
         run: |
-          black --check hanabi tests
+          poetry run black --check hanabi tests
       - name: Test with pytest
         run: |
-          pytest
+          poetry run pytest
