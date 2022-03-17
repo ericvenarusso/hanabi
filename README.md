@@ -10,7 +10,7 @@ Hanabi is a open-source Python framework that automate the creation of music vid
 # How to install
 To install hanabi, you just need to run:
 ```
-pip install hanabi
+poetry install
 ```
 
 # How to use
