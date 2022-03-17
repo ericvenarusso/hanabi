@@ -22,19 +22,19 @@ Hanabi cli has some other arguments such as:
 ### Image File
 Allows you to create the video from the specified image.
 ```
-hanabi create-video --music-name --image-file "eminem.jpg"
+hanabi create-video --music-name "eminem lose your self" --image-file "eminem.jpg"
 ```
 
 ### Audio File
 Allows you to create the video from the specified audio.
 ```
-hanabi create-video --music-name --audio-file "lose_your_self.mp3"
+hanabi create-video --music-name "eminem lose your self" --audio-file "lose_your_self.mp3"
 ```
 
 ### Save Path
 Allows you to create the video from the specified path.
 ```
-hanabi create-video --music-name --save-path "eminem_lose_your_self.mp4"
+hanabi create-video --music-name "eminem lose your self" --save-path "eminem_lose_your_self.mp4"
 ```
 
 ## Hanabi API
