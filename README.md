@@ -7,12 +7,6 @@
 # What is Hanabi?
 Hanabi is a open-source Python framework that automate the creation of music videos with lyrics.
 
-# How to install
-To install hanabi, you just need to run:
-```
-poetry install
-```
-
 # How to use
 Imagine that you would like to create a music video for Eminem - Lose your self. You can use hanabi cli, as follows:
 
