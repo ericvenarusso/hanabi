@@ -47,8 +47,9 @@ def create_video(create_video, music_name, image_file, audio_file, save_path):
         image=image_file,
     )
 
+    music_name = f"{music_name}.mp4"
     if save_path:
-        music_name = f"{save_path}/{music_name}"
+        music_name = save_path
 
     video.create_video_clip(save_path=music_name)
 
